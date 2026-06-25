@@ -6,9 +6,12 @@
 
 document.addEventListener("DOMContentLoaded", async () => {
 
-  await loadProfile();
-  await loadPortfolioData();
-  await loadExperience();
+  await Promise.all([
+      loadProfile(),
+      loadSkills(),
+      loadExperience(),
+      loadProjects()
+  ])
 
   initTypedHero();
   initTabs();
@@ -54,6 +57,9 @@ async function loadProfile() {
     }
 
     const data = await response.json();
+
+    renderFeaturedStack(data);
+    renderResume(data);
 
     // DOM updates
     const firstNameEl = document.getElementById('first-name');
@@ -105,24 +111,64 @@ async function loadProfile() {
   }
 }
 
-/* ---- Load Portfolio Data ------------------------------------ */
-async function loadPortfolioData() {
+async function loadProjects() {
 
-  const [
-    profile,
-    skills,
-    experience,
-    projects
-  ] = await Promise.all([
-    fetch("data/profile.json").then(r => r.json()),
-    fetch("data/skills.json").then(r => r.json()),
-    fetch("data/experience.json").then(r => r.json()),
-    fetch("data/projects.json").then(r => r.json())
-  ]);
+  try {
 
-  renderFeaturedStack(profile);
-  renderFeaturedProjects(projects);
-  renderResume(profile);
+    const response =
+        await fetch(
+            "data/project-index.json"
+        );
+
+    if (!response.ok) {
+      throw new Error(
+          `Failed to load project-index.json`
+      );
+    }
+
+    const projects =
+        await response.json();
+
+    renderFeaturedProjects(projects);
+
+  } catch (err) {
+
+    console.error(
+        "Failed to load projects",
+        err
+    );
+
+  }
+}
+
+async function loadSkills() {
+
+  try {
+
+    const response =
+        await fetch(
+            "data/skills.json"
+        );
+
+    if (!response.ok) {
+      throw new Error(
+          `Failed to load skills.json`
+      );
+    }
+
+    const skills =
+        await response.json();
+
+    renderSkills(skills);
+
+  } catch (err) {
+
+    console.error(
+        "Failed to load skills",
+        err
+    );
+
+  }
 }
 
 /* ---- Load Experience Data ------------------------------------ */
@@ -333,7 +379,7 @@ function renderFeaturedStack(profile) {
 }
 
 /* ---- Featured Projects  ------------------------------------ */
-function renderFeaturedProjects(projects) {
+function renderFeaturedProjects(projectIndex) {
 
   const container =
       document.getElementById(
@@ -343,14 +389,53 @@ function renderFeaturedProjects(projects) {
   if (!container) return;
 
   const featured =
-      projects
-          .filter(p => p.featured)
-          .slice(0, 4);
+      projectIndex.featuredProjects
+          .map(slug =>
+              projectIndex.projects.find(
+                  project =>
+                      project.id === id
+              )
+          )
+          .filter(Boolean);
 
   container.innerHTML =
       featured
           .map(project => createProjectCard(project))
           .join("");
+}
+
+function renderSkills(skills) {
+
+  const container =
+      document.getElementById(
+          "skills-container"
+      );
+
+  if (!container) return;
+
+  container.innerHTML =
+      Object.entries(skills)
+          .map(
+              ([category, items]) => `
+                <div class="glass-card reveal skill-group">
+
+                  <h3>${category}</h3>
+
+                  <div class="chip-row">
+                    ${items
+                  .map(
+                      skill =>
+                          `<span class="chip">${skill}</span>`
+                  )
+                  .join("")}
+                  </div>
+
+                </div>
+              `
+          )
+          .join("");
+
+  initReveal();
 }
 
 /* ---- Project Cards ------------------------------------ */
