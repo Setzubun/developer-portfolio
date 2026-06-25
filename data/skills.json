@@ -1,0 +1,19 @@
+{
+  "Languages": [
+    "Java",
+    "Python",
+    "Kotlin"
+  ],
+
+  "Frameworks": [
+    "Spring Boot",
+    "React",
+    "Jetpack Compose"
+  ],
+
+  "Cloud": [
+    "AWS",
+    "Docker",
+    "Linux"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "firstName": "Jerry",
+  "lastName": "Lew",
+  "title": "Software Engineer",
+  "tagline": "Building scalable systems and developer-focused applications.",
+
+  "location": "Singapore",
+
+  "email": "jerrylew.dev@gmail.com",
+  "githubUrl": "https://github.com/Setzubun",
+  "linkedinUrl": "https://www.linkedin.com/in/lew-jiajun/ ",
+
+  "resume": "LEW JIAJUN CV.pdf",
+
+  "featuredTechStack": [
+    "Java",
+    "Spring Boot",
+    "Kotlin",
+    "AWS",
+    "Docker",
+    "PostgreSQL"
+  ]
+}

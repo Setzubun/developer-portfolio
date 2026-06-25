@@ -1,0 +1,54 @@
+[
+  {
+    "type": "internship",
+
+    "title": "Intern at Sea Ltd.",
+    "institution": "Digital Workplace Transformation",
+
+    "startDate": "2025",
+    "endDate": "2026",
+
+    "description": [
+      "Designed, optimised and implemented a robust data retrieval pipeline from database to data visualisation while integrating new and existing data sources of 100,000+ records"
+    ]
+  },
+  {
+    "type": "education",
+
+    "title": "B.Sc. Computing Science",
+    "institution": "Singapore Institute of Technology (SIT)",
+
+    "startDate": "2022",
+    "endDate": "2026",
+
+    "description": [
+      "Graduated with Honours with Distinction"
+    ]
+  },
+  {
+    "type": "internship",
+
+    "title": "Intern at HSBC",
+    "institution": "Global Liquidity Asset Management Team",
+
+    "startDate": "2025",
+    "endDate": "2026",
+
+    "description": [
+      "Automated web data extraction over thousands of records to replace manual processes and reduce processing time by 1 week"
+    ]
+  },
+  {
+    "type": "education",
+
+    "title": "Diploma in Financial Informatics",
+    "institution": "Ngee Ann Polytechnic (NP)",
+
+    "startDate": "2018",
+    "endDate": "2020",
+
+    "description": [
+      "Graduated with Diploma"
+    ]
+  }
+]
