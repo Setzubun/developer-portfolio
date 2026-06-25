@@ -3,5 +3,18 @@
     "family-password-app"
   ],
   "projects": [
+    {
+      "id": "shared-vault",
+      "title": "Shared Vault",
+      "tagline": "Collaborative document vault platform with real-time synchronization.",
+      "thumbnail": "projects/family-password-app/assets/cover.webp",
+      "startDate": "2025-01",
+      "endDate": "2025-05",
+      "technologies": [
+        "Kotlin",
+        "Firebase",
+        "Jetpack Compose"
+      ]
+    }
   ]
 }
