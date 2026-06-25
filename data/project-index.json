@@ -4,8 +4,8 @@
   ],
   "projects": [
     {
-      "id": "shared-vault",
-      "title": "Shared Vault",
+      "id": "family-password-app",
+      "title": "Family Password App",
       "tagline": "Collaborative document vault platform with real-time synchronization.",
       "thumbnail": "projects/family-password-app/assets/cover.webp",
       "startDate": "2025-01",
