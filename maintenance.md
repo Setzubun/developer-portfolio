@@ -21,9 +21,9 @@ Example:
 
 3. Add an entry to: `data/projects.json`
 
-4. Mark: `"featured": true` to display on homepage.
+4. Edit `data/project-index.json` for which projects should be featured `featuredProjects`
 
-Only the first 4 featured projects appear on the homepage.
+5. Run `node scripts/generate-project-index.js` to populate project-index.json
 
 # Adding an experience
 1. Edit in experience.json

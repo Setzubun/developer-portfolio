@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- ✏️ EDIT: update the title and description with your full name -->
-<title>Jerry — Software Engineer Portfolio</title>
+<title>Jerry's Software Engineer Portfolio</title>
 <meta name="description" content="Portfolio of Jerry, Computer Science graduate (Honours with Distinction) from Singapore Institute of Technology." />
 
 <!-- Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (code/labels) -->
@@ -23,7 +23,6 @@
   <!-- ============ TOP BAR ============ -->
   <header class="topbar">
     <div class="topbar-inner">
-      <!-- ✏️ EDIT: replace "JL" with your own initials/mark -->
       <a href="#top" class="brand">JL<span class="brand-dot">.</span></a>
 
       <nav class="social-links" aria-label="Social links">
@@ -48,17 +47,13 @@
         <span id="typed-text"></span><span class="cursor" aria-hidden="true">_</span>
       </p>
 
-      <!-- ✏️ EDIT: add your last name -->
       <h1 class="hero-name"><span id="first-name"></span> <span class="hl" id="last-name"></span></h1>
 
-      <!-- ✏️ EDIT: this line auto-fills from your SIT background — adjust if needed -->
-      <p class="hero-role">B.Sc. Computer Science (Honours with Distinction) · Singapore Institute of Technology</p>
+      <p id="current-role" class="hero-role"></p>
 
-      <!-- ✏️ EDIT: write a one-line tagline about what you build / what you're looking for -->
-      <p class="hero-tagline">[One line about what you build, what you're passionate about, and what kind of role you're looking for.]</p>
+      <div id="hero-tagline" class="hero-tagline"></div>
 
       <div class="hero-actions">
-        <!-- ✏️ EDIT: add your real CV file to the assets/ folder and update this href -->
         <a href="assets/Jerry_Resume.pdf" download class="btn btn-solid">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
           Download CV
@@ -93,16 +88,7 @@
         <div class="glass-card reveal">
           <h2 class="panel-title">About Me</h2>
 
-          <!-- ✏️ EDIT: replace with your real bio. 2-3 short paragraphs works well -->
-          <p>
-            I'm a recent Computer Science graduate from the Singapore Institute of Technology,
-            graduating with Honours with Distinction. [Add 1-2 sentences about your interests —
-            e.g. backend systems, AI/ML, mobile apps, the kind of problems you enjoy solving.]
-          </p>
-          <p>
-            [Add a second paragraph — e.g. a project you're proud of, an internship highlight,
-            or what you're looking for in your first full-time role.]
-          </p>
+          <div id="about-me-container"></div>
 
           <div class="fact-grid">
             <div class="fact">
@@ -111,17 +97,15 @@
             </div>
             <div class="fact">
               <span class="fact-label">Distinction</span>
-              <span class="fact-value">Honours with Distinction</span>
+              <span id = distinction class="fact-value">Honours with Distinction</span>
             </div>
             <div class="fact">
-              <!-- ✏️ EDIT: confirm your location -->
               <span class="fact-label">Location</span>
-              <span class="fact-value">Singapore</span>
+              <span id= location class="fact-value"></span>
             </div>
             <div class="fact">
-              <!-- ✏️ EDIT: e.g. "Open to full-time roles" / "Open to internships" -->
               <span class="fact-label">Status</span>
-              <span class="fact-value">Open to opportunities</span>
+              <span id = status class="fact-value">Open to opportunities</span>
             </div>
           </div>
         </div>
@@ -129,55 +113,7 @@
 
       <!-- ---------- SKILLS ---------- -->
       <article class="panel" id="skills" data-panel="skills" hidden>
-        <div class="skills-grid">
-
-          <!-- ✏️ EDIT: every chip below is a placeholder — swap in your real stack -->
-          <div class="glass-card reveal">
-            <h3 class="skill-cat">Languages</h3>
-            <div class="chip-row">
-              <span class="chip">Java</span>
-              <span class="chip">Python</span>
-              <span class="chip">JavaScript</span>
-              <span class="chip">TypeScript</span>
-              <span class="chip">SQL</span>
-              <span class="chip">C</span>
-            </div>
-          </div>
-
-          <div class="glass-card reveal">
-            <h3 class="skill-cat">Frameworks &amp; Libraries</h3>
-            <div class="chip-row">
-              <span class="chip">React</span>
-              <span class="chip">Node.js</span>
-              <span class="chip">Spring Boot</span>
-              <span class="chip">Express</span>
-              <span class="chip">TailwindCSS</span>
-            </div>
-          </div>
-
-          <div class="glass-card reveal">
-            <h3 class="skill-cat">Tools &amp; Platforms</h3>
-            <div class="chip-row">
-              <span class="chip">Git</span>
-              <span class="chip">Docker</span>
-              <span class="chip">AWS</span>
-              <span class="chip">Postman</span>
-              <span class="chip">Linux</span>
-            </div>
-          </div>
-
-          <div class="glass-card reveal">
-            <h3 class="skill-cat">Concepts</h3>
-            <div class="chip-row">
-              <span class="chip">Data Structures</span>
-              <span class="chip">Algorithms</span>
-              <span class="chip">OOP</span>
-              <span class="chip">REST APIs</span>
-              <span class="chip">Agile/Scrum</span>
-            </div>
-          </div>
-
-        </div>
+        <div id= "skills-container" class="skills-grid"></div>
       </article>
 
       <!-- ---------- PROJECTS ---------- -->

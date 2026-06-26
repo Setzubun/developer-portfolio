@@ -4,11 +4,19 @@
   "title": "Software Engineer",
   "tagline": "Building scalable systems and developer-focused applications.",
 
+  "currentRole": "B.Sc. Computer Science (Honours with Distinction) · Singapore Institute of Technology",
+
+  "aboutMe": "I'm a recent Computer Science graduate from the Singapore Institute of Technology, graduating with Honours with Distinction. [Add 1-2 sentences about your interests — e.g. backend systems, AI/ML, mobile apps, the kind of problems you enjoy solving.]\n\n[Add a second paragraph — e.g. a project you're proud of, an internship highlight, or what you're looking for in your first full-time role.]",
+
+  "education": "B.Sc. Computing Science, SIT",
+  "distinction":"Honours with Distinction",
   "location": "Singapore",
+  "status": "Open to opportunities",
+
 
   "email": "jerrylew.dev@gmail.com",
   "githubUrl": "https://github.com/Setzubun",
-  "linkedinUrl": "https://www.linkedin.com/in/lew-jiajun/ ",
+  "linkedinUrl": "https://www.linkedin.com/in/lew-jiajun/",
 
   "resume": "LEW JIAJUN CV.pdf",
 

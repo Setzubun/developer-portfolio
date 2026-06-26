@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initParticles();
 });
 
-/* ---- Typed "whoami" hero line ------------------------------------ */
+
 function initTypedHero() {
   const el = document.getElementById("typed-text");
   if (!el) return;
@@ -66,10 +66,41 @@ async function loadProfile() {
     const lastNameEl = document.getElementById('last-name');
     const taglineEl = document.getElementById('hero-tagline');
     const footerNameEl = document.getElementById('footer-name');
+    const currentRoleEl = document.getElementById('current-role');
+
+    const aboutMeEl = document.getElementById('about-me-container');
+
+    const educationEl = document.getElementById('education');
+    const distinctionEl = document.getElementById('distinction');
+    const locationEl = document.getElementById('location')
+    const statusEl = document.getElementById('status')
 
     if (firstNameEl) firstNameEl.textContent = data.firstName || '';
     if (lastNameEl) lastNameEl.textContent = data.lastName || '';
     if (taglineEl) taglineEl.textContent = data.tagline || '';
+    if (currentRoleEl) currentRoleEl.textContent = data.currentRole || '';
+
+    if (aboutMeEl && data.aboutMe) {
+      // Clear out any placeholder content first
+      aboutMeEl.innerHTML = '';
+
+      // Split the long string by double-newlines into an array of paragraphs
+      const paragraphs = data.aboutMe.split('\n\n');
+
+      // Loop through and create a <p> element for each chunk of text
+      paragraphs.forEach(text => {
+        if (text.trim() !== '') { // Skip empty blocks
+          const p = document.createElement('p');
+          p.textContent = text;
+          aboutMeEl.appendChild(p);
+        }
+      });
+    }
+
+    if (educationEl) educationEl.textContent = data.education || '';
+    if (distinctionEl) distinctionEl.textContent = data.distinction || '';
+    if (locationEl) locationEl.textContent = data.location || '';
+    if (statusEl) statusEl.textContent = data.status || '';
 
     if (footerNameEl) {
       // Use fallback logic to avoid printing "undefined"
@@ -171,7 +202,7 @@ async function loadSkills() {
   }
 }
 
-/* ---- Load Experience Data ------------------------------------ */
+
 async function loadExperience() {
   const container =
       document.getElementById("experience-timeline");
@@ -197,7 +228,7 @@ async function loadExperience() {
   }
 }
 
-/* ---- Tab switching -------------------------------------------------- */
+
 function initTabs() {
   const tabBtns = Array.from(document.querySelectorAll(".tab-btn"));
   const panels = Array.from(document.querySelectorAll(".panel"));
@@ -279,7 +310,7 @@ function initTabs() {
   });
 }
 
-/* ---- Scroll-triggered reveal animations ----------------------------- */
+
 function initReveal() {
   const targets = document.querySelectorAll(".reveal");
   if (!("IntersectionObserver" in window) || targets.length === 0) {
@@ -302,7 +333,7 @@ function initReveal() {
   targets.forEach((t) => observer.observe(t));
 }
 
-/* ---- Contact form (Formspree) --------------------------------------- */
+
 function initContactForm() {
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
@@ -341,13 +372,13 @@ function initContactForm() {
   });
 }
 
-/* ---- Footer year ------------------------------------------------------ */
+
 function initFooterYear() {
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 }
 
-/* ---- Resume ------------------------------------ */
+
 function renderResume(profile) {
 
   const resumeButton =
@@ -359,7 +390,7 @@ function renderResume(profile) {
       `assets/resume/${profile.resume}`;
 }
 
-/* ---- Featured Stack ------------------------------------ */
+
 function renderFeaturedStack(profile) {
 
   const container =
@@ -378,7 +409,7 @@ function renderFeaturedStack(profile) {
           .join("");
 }
 
-/* ---- Featured Projects  ------------------------------------ */
+
 function renderFeaturedProjects(projectIndex) {
 
   const container =
@@ -390,7 +421,7 @@ function renderFeaturedProjects(projectIndex) {
 
   const featured =
       projectIndex.featuredProjects
-          .map(slug =>
+          .map(id =>
               projectIndex.projects.find(
                   project =>
                       project.id === id
@@ -403,6 +434,7 @@ function renderFeaturedProjects(projectIndex) {
           .map(project => createProjectCard(project))
           .join("");
 }
+
 
 function renderSkills(skills) {
 
@@ -438,7 +470,7 @@ function renderSkills(skills) {
   initReveal();
 }
 
-/* ---- Project Cards ------------------------------------ */
+
 function createProjectCard(project) {
 
   return `
@@ -453,7 +485,7 @@ function createProjectCard(project) {
       <h3>${project.title}</h3>
 
       <p>
-        ${project.shortDescription}
+        ${project.tagline}
       </p>
 
       <div class="chip-row">
@@ -471,7 +503,7 @@ function createProjectCard(project) {
   `;
 }
 
-/* ---- Experience Cards ------------------------------------ */
+
 function createExperienceCard(exp) {
 
   const descriptionHtml =
@@ -504,7 +536,7 @@ function createExperienceCard(exp) {
   `;
 }
 
-/* ---- Particle background ------------------------------------ */
+
 function initParticles() {
 
   const canvas =
