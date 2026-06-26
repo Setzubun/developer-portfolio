@@ -18,8 +18,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   initReveal();
   initContactForm();
   initFooterYear();
-
-  initParticles();
 });
 
 
