@@ -8,19 +8,6 @@
     text-align: left;
 }
 
-.hero-name {
-    font-size: clamp(2.4rem, 6.5vw, 4.2rem);
-    line-height: 1.05;
-    margin-bottom: 0.9rem;
-}
-
-.hero-name .hl {
-    background: var(--gradient-hero);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
 .hero-role {
     font-size: clamp(1rem, 2vw, 1.15rem);
     color: var(--text-muted);

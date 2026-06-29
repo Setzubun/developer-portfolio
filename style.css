@@ -225,6 +225,13 @@ body {
   margin-bottom: 0.9rem;
 }
 
+.hero-name .hl {
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .cursor {
   display: inline-block;
   animation: blink 1s step-end infinite;
