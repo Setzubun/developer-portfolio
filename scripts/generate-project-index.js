@@ -30,7 +30,7 @@ const projects = projectFolders.map(folder => {
     const projectJsonPath = path.join(
         projectsDir,
         id,
-        "project.json"
+        "project-details.json"
     );
 
     const project = JSON.parse(

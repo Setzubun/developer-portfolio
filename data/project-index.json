@@ -5,6 +5,48 @@
   "projects": [
     {
       "id": "family-password-app",
+      "title": "Dummy App",
+      "tagline": "Collaborative document vault platform with real-time synchronization.",
+      "thumbnail": "projects/dummy-app/assets/cover.webp",
+      "startDate": "2025-01",
+      "endDate": "2025-05",
+      "technologies": [
+        "Kotlin",
+        "Firebase",
+        "Jetpack Compose",
+        "Docker",
+        "Kubernetes",
+        "Ruby"
+      ]
+    },
+    {
+      "id": "family-password-app",
+      "title": "Dummy app 2",
+      "tagline": "Collaborative document vault platform with real-time synchronization.",
+      "thumbnail": "projects/dummy-app-2/assets/cover.webp",
+      "startDate": "2025-01",
+      "endDate": "2025-05",
+      "technologies": [
+        "Kotlin",
+        "Firebase",
+        "Jetpack Compose"
+      ]
+    },
+    {
+      "id": "family-password-app",
+      "title": "Dummy app 3",
+      "tagline": "Collaborative document vault platform with real-time synchronization.",
+      "thumbnail": "projects/dummy-app-3/assets/cover.webp",
+      "startDate": "2025-01",
+      "endDate": "2025-05",
+      "technologies": [
+        "Kotlin",
+        "Firebase",
+        "Jetpack Compose"
+      ]
+    },
+    {
+      "id": "family-password-app",
       "title": "Family Password App",
       "tagline": "Collaborative document vault platform with real-time synchronization.",
       "thumbnail": "projects/family-password-app/assets/cover.webp",

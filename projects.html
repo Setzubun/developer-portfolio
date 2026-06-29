@@ -1,32 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Projects</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="style.css">
+    <title>All Projects — Jerry</title>
+    <meta name="description" content="Full project history of Jerry, Computer Science graduate (Honours with Distinction) from Singapore Institute of Technology." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="pages/projects.css" />
 </head>
-
 <body>
 
-<canvas id="particle-background"></canvas>
+<canvas id="particle-background" aria-hidden="true"></canvas>
 
+<!-- ============ TOP BAR (same as index.html) ============ -->
 <header class="topbar">
-    ...
+    <div class="topbar-inner">
+        <a href="index.html#top" class="brand">JL<span class="brand-dot">.</span></a>
+
+        <nav class="social-links" aria-label="Social links">
+            <a href="#" class="js-github-link" target="_blank" rel="noopener" aria-label="GitHub profile">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.65.5.5 5.66.5 12.02c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56v-2.16c-3.2.7-3.87-1.34-3.87-1.34-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.49 3.17-1.18 3.17-1.18.64 1.58.24 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.42.36.78 1.08.78 2.17v3.22c0 .31.21.67.8.56 4.56-1.53 7.85-5.84 7.85-10.93C23.5 5.66 18.35.5 12 .5Z"/></svg>
+            </a>
+            <a href="#" class="js-linkedin-link" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+            </a>
+            <a href="#" class="js-email-link" aria-label="Send an email">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13Zm2.2.3 7.3 6.1a1 1 0 0 0 1.28 0l7.3-6.1a.6.6 0 0 0-.38-1.06H4.58a.6.6 0 0 0-.38 1.06ZM20 7.9l-6.83 5.7a2.6 2.6 0 0 1-3.34 0L3 7.9v10.6c0 .28.22.5.5.5h15c.28 0 .5-.22.5-.5V7.9Z"/></svg>
+            </a>
+        </nav>
+    </div>
 </header>
 
-<main class="all-projects-page">
-
-    <section class="hero">
-        <h1>Projects</h1>
-        <p>A collection of software, cloud, and engineering projects.</p>
+<main>
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="page-header">
+        <div class="page-header-text">
+            <p class="eyebrow">
+                <span class="prompt">jerry@portfolio:~$</span> ls ~/projects --all
+            </p>
+            <h1 class="hero-name" style="font-size: clamp(1.9rem, 4.5vw, 2.6rem);">All Projects</h1>
+            <p class="page-subtitle">Every project I've shipped, archived, or am still tinkering with — not just the highlights on the homepage.</p>
+        </div>
+        <a href="index.html#top" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to home
+        </a>
     </section>
 
-    <div id="all-projects-container"></div>
-
+    <!-- ============ ALL PROJECTS GRID ============ -->
+    <section class="page-section">
+        <div class="projects-grid" id="all-projects-grid" data-loading="true">
+            <!-- Populated at runtime by projects.js from data/project-index.json -->
+            <div class="glass-card project-card skeleton"></div>
+            <div class="glass-card project-card skeleton"></div>
+            <div class="glass-card project-card skeleton"></div>
+            <div class="glass-card project-card skeleton"></div>
+            <div class="glass-card project-card skeleton"></div>
+            <div class="glass-card project-card skeleton"></div>
+        </div>
+    </section>
 </main>
 
-<script src="script.js"></script>
+<footer class="site-footer">
+    <p>© <span id="year"></span> <span id="footer-name"></span>. Built with HTML, CSS &amp; JS — hosted on GitHub Pages.</p>
+</footer>
 
+<script src="particles.js"></script>
+<script src="projects.js"></script>
 </body>
 </html>
