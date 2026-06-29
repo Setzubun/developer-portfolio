@@ -384,3 +384,9 @@
 .contact-direct a:hover {
     color: var(--accent);
 }
+
+@media (max-width: 768px) {
+    .fact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
