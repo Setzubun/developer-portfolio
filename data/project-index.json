@@ -4,7 +4,7 @@
   ],
   "projects": [
     {
-      "id": "family-password-app",
+      "id": "dummy-app",
       "title": "Dummy App",
       "tagline": "Collaborative document vault platform with real-time synchronization.",
       "thumbnail": "projects/dummy-app/assets/cover.webp",
@@ -20,7 +20,7 @@
       ]
     },
     {
-      "id": "family-password-app",
+      "id": "dummy-app-2",
       "title": "Dummy app 2",
       "tagline": "Collaborative document vault platform with real-time synchronization.",
       "thumbnail": "projects/dummy-app-2/assets/cover.webp",
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "id": "family-password-app",
+      "id": "dummy-app-3",
       "title": "Dummy app 3",
       "tagline": "Collaborative document vault platform with real-time synchronization.",
       "thumbnail": "projects/dummy-app-3/assets/cover.webp",
