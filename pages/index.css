@@ -8,27 +8,6 @@
     text-align: left;
 }
 
-.eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.92rem;
-    color: var(--accent);
-    margin-bottom: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-}
-
-.prompt {
-    color: var(--text-dim);
-}
-
-.cursor {
-    display: inline-block;
-    animation: blink 1s step-end infinite;
-    color: var(--accent);
-}
-
 .hero-name {
     font-size: clamp(2.4rem, 6.5vw, 4.2rem);
     line-height: 1.05;

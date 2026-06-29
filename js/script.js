@@ -1,3 +1,4 @@
+import { initTypedHero } from "./utils.js";
 /* ============================================================
    PORTFOLIO SCRIPT
    Handles: tab switching, hero typed effect, scroll reveals,
@@ -13,37 +14,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       loadProjects()
   ])
 
-  initTypedHero();
+  initTypedHero("whoami");
   initTabs();
   initReveal();
   initContactForm();
   initFooterYear();
 });
-
-
-function initTypedHero() {
-  const el = document.getElementById("typed-text");
-  if (!el) return;
-
-  // ✏️ EDIT: change this line to whatever one-liner you want typed out
-  const message = "whoami";
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (reduceMotion) {
-    el.textContent = message;
-    return;
-  }
-
-  let i = 0;
-  function type() {
-    if (i <= message.length) {
-      el.textContent = message.slice(0, i);
-      i++;
-      setTimeout(type, 90);
-    }
-  }
-  type();
-}
 
 async function loadProfile() {
   try {
@@ -298,7 +274,7 @@ function initTabs() {
     moveIndicator(activeBtn);
   });
 
-  activateTab("summary");
+  // activateTab("summary");
 
   requestAnimationFrame(() => {
     const activeBtn =

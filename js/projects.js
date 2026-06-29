@@ -1,3 +1,4 @@
+import { initTypedHero } from "./utils.js";
 /* ============================================================
    PROJECTS PAGE SCRIPT (projects.html only)
 
@@ -23,6 +24,7 @@ const PROJECT_DETAIL_URL = (id) => `project.html?id=${encodeURIComponent(id)}`;
 document.addEventListener("DOMContentLoaded", async () => {
     await Promise.all([loadHeaderAndFooter(), loadAllProjects()]);
     initFooterYear();
+    initTypedHero("ls ~/projects --all");
 });
 
 /* ---- Topbar + footer (lightweight subset of script.js's loadProfile) - */

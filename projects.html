@@ -42,9 +42,11 @@
     <section class="page-header">
         <div class="page-header-text">
             <p class="eyebrow">
-                <span class="prompt">jerry@portfolio:~$</span> ls ~/projects --all
+                <span class="prompt">jerry@portfolio:~$</span>
+                <span id="typed-text"></span><span class="cursor" aria-hidden="true">_</span>
             </p>
-            <h1 class="hero-name" style="font-size: clamp(1.9rem, 4.5vw, 2.6rem);">All Projects</h1>
+            <h1 class="hero-name" style="font-size: clamp(1.9rem, 4.5vw, 2.6rem);">All <span class="hl">Projects</span>
+            </h1>
             <p class="page-subtitle">Every project I've shipped, archived, or am still tinkering with — not just the highlights on the homepage.</p>
         </div>
         <a href="index.html#top" class="btn btn-ghost">
@@ -71,7 +73,7 @@
     <p>© <span id="year"></span> <span id="footer-name"></span>. Built with HTML, CSS &amp; JS — hosted on GitHub Pages.</p>
 </footer>
 
-<script src="particles.js"></script>
-<script src="projects.js"></script>
+    <script type="module" src="js/projects.js"></script>
+    <script src="js/particles.js"></script>
 </body>
 </html>
