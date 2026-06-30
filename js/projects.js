@@ -1,4 +1,4 @@
-import { initTypedHero } from "./utils.js";
+import {dateLabel, initTypedHero, sortByRecency} from "./utils.js";
 /* ============================================================
    PROJECTS PAGE SCRIPT (projects.html only)
 
@@ -19,7 +19,7 @@ import { initTypedHero } from "./utils.js";
 
    If you decide to generate a static page per project instead
    (projects/<id>/index.html), this is the only line to change. */
-const PROJECT_DETAIL_URL = (id) => `project.html?id=${encodeURIComponent(id)}`;
+const PROJECT_DETAIL_URL = (id) => `project-details.html?id=${encodeURIComponent(id)}`;
 
 document.addEventListener("DOMContentLoaded", async () => {
     await Promise.all([loadHeaderAndFooter(), loadAllProjects()]);
@@ -82,31 +82,6 @@ async function loadAllProjects() {
         error.textContent = "Couldn't load projects right now — please refresh, or check the console for details.";
         grid.appendChild(error);
     }
-}
-
-function sortValue(project) {
-    if (project.current || project.status === "In Progress") return Infinity;
-    const ref = project.endDate || project.startDate;
-    if (!ref) return -Infinity;
-    const [y, m] = ref.split("-").map(Number);
-    return y * 12 + (m || 0);
-}
-
-function sortByRecency(projects) {
-    return [...projects].sort((a, b) => sortValue(b) - sortValue(a));
-}
-
-function formatMonth(yyyyMm) {
-    if (!yyyyMm) return "";
-    const [y, m] = yyyyMm.split("-").map(Number);
-    return new Date(y, (m || 1) - 1).toLocaleDateString("en-US", { month: "short", year: "numeric" });
-}
-
-function dateLabel(project) {
-    const start = formatMonth(project.startDate);
-    const end = project.current || project.status === "In Progress" ? "Present" : formatMonth(project.endDate);
-    if (start && end) return `${start} – ${end}`;
-    return start || end || "";
 }
 
 function renderAllProjects(grid, projects) {

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project Details | Jerry's Portfolio</title>
+
+    <meta
+            name="description"
+            content="Software engineering project details."
+    >
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages/project-details.css">
+</head>
+
+<body>
+
+<canvas id="particle-background"></canvas>
+
+<header class="topbar">
+    <div class="topbar-inner">
+
+        <a href="index.html" class="brand">
+            JL<span class="brand-dot">.</span>
+        </a>
+
+        <nav class="social-links" aria-label="Social links">
+
+            <a class="js-github-link" href="#" target="_blank" rel="noopener">
+                <!-- GitHub icon -->
+            </a>
+
+            <a class="js-linkedin-link" href="#" target="_blank" rel="noopener">
+                <!-- LinkedIn icon -->
+            </a>
+
+            <a id="js-email-link" href="#">
+                <!-- Email icon -->
+            </a>
+
+        </nav>
+
+    </div>
+</header>
+
+<main class="project-page">
+
+    <section class="project-hero">
+
+        <a href="projects.html" class="back-link">
+            ← Back to Projects
+        </a>
+
+        <p id="project-category" class="eyebrow"></p>
+
+        <h1 id="project-title" class="hero-name"></h1>
+
+        <p id="project-tagline" class="hero-tagline"></p>
+
+        <div id="project-links" class="hero-actions"></div>
+
+        <img
+                id="project-thumbnail"
+                class="project-hero-image"
+                alt=""
+        >
+
+    </section>
+
+    <section class="glass-card">
+
+        <h2 class="panel-title">
+            Quick Facts
+        </h2>
+
+        <div id="project-facts" class="fact-grid"></div>
+
+        <div
+                id="project-technologies"
+                class="chip-row">
+        </div>
+
+    </section>
+
+    <section class="glass-card">
+
+        <h2 class="panel-title">
+            Overview
+        </h2>
+
+        <div id="project-overview"></div>
+
+    </section>
+
+    <section class="glass-card">
+
+        <h2 class="panel-title">
+            Architecture
+        </h2>
+
+        <p id="project-architecture"></p>
+
+    </section>
+
+    <section class="glass-card">
+
+        <h2 class="panel-title">
+            Gallery
+        </h2>
+
+        <div id="project-gallery"></div>
+
+    </section>
+
+    <section class="glass-card">
+
+        <h2 class="panel-title">
+            Key Contributions
+        </h2>
+
+        <ul id="project-contributions"></ul>
+
+    </section>
+
+    <section class="glass-card">
+
+        <h2 class="panel-title">
+            Challenges
+        </h2>
+
+        <div id="project-challenges"></div>
+
+    </section>
+
+    <section class="glass-card">
+
+        <h2 class="panel-title">
+            Results
+        </h2>
+
+        <ul id="project-metrics"></ul>
+
+    </section>
+
+    <section class="glass-card">
+
+        <h2 class="panel-title">
+            Lessons Learned
+        </h2>
+
+        <ul id="project-learning"></ul>
+
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p>
+        © <span id="year"></span> Jerry Lim.
+    </p>
+</footer>
+
+<script type="module" src="js/project-details.js"></script>
+<script src="js/particles.js"></script>
+
+</body>
+</html>
