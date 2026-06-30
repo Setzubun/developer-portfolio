@@ -4,6 +4,7 @@ const PROJECTS_ROOT = "projects";
 
 document.addEventListener("DOMContentLoaded", async () => {
     initialisePage();
+    await loadHeaderAndFooter();
 
     try {
         const projectId = getProjectId();
@@ -41,6 +42,43 @@ document.addEventListener("DOMContentLoaded", async () => {
 function initialisePage() {
     document.getElementById("year").textContent =
         new Date().getFullYear();
+}
+
+/* ----------------------------------------------------------
+    Header and Footer
+---------------------------------------------------------- */
+async function loadHeaderAndFooter() {
+    try {
+        const res = await fetch("data/profile.json");
+        if (!res.ok) throw new Error(`Failed to load profile.json: ${res.status}`);
+        const data = await res.json();
+
+        if (data.githubUrl) {
+            document.querySelectorAll(".js-github-link").forEach((el) => {
+                el.href = data.githubUrl.trim();
+            });
+        }
+        if (data.linkedinUrl) {
+            document.querySelectorAll(".js-linkedin-link").forEach((el) => {
+                el.href = data.linkedinUrl.trim();
+            });
+        }
+        if (data.email) {
+            const email = data.email.trim();
+            document.querySelectorAll(".js-email-link").forEach((el) => {
+                el.href = `mailto:${email}`;
+            });
+        }
+
+        const footerNameEl = document.getElementById("footer-name");
+        if (footerNameEl) {
+            const first = data.firstName || "";
+            const last = data.lastName || "";
+            footerNameEl.textContent = `${first} ${last}`.trim();
+        }
+    } catch (err) {
+        console.error("[projects.js] Could not load profile.json for header/footer:", err);
+    }
 }
 
 /* ----------------------------------------------------------
