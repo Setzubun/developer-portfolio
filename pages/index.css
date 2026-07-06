@@ -28,7 +28,17 @@
 }
 
 /* ============================================================
-   TAB BAR
+   JUMP NAV (formerly the tab bar)
+
+   Visual styling is unchanged from the tab-switching version —
+   it's a separate sticky element (not nested in the header),
+   narrower than the topbar and with a much higher z-index, so
+   once stuck it visually overlaps the topbar between the brand
+   mark and the social icons. What changed is behaviour: clicking
+   a button now scrolls to the matching section below instead of
+   swapping panel visibility, and the active state tracks scroll
+   position via IntersectionObserver (see initSectionNav in
+   script.js) rather than the last click.
    ============================================================ */
 .tabbar {
     position: sticky;
@@ -88,21 +98,23 @@
 }
 
 /* ============================================================
-   TAB PANELS
+   SECTIONS (formerly "tab panels" — now all visible at once in
+   one continuous scroll, like project-details.html)
    ============================================================ */
 .tab-panels {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 clamp(1.25rem, 5vw, 4rem) 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 }
 
 .panel {
-    animation: fadeIn 0.45s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
+    /* Lets the jump nav's scrollIntoView land each section below the
+       sticky topbar + jump nav instead of tucked underneath them.
+       Tune this if the topbar or jump nav's height/offset changes. */
+    scroll-margin-top: 7.5rem;
 }
 
 .panel-title {
@@ -116,7 +128,7 @@
     max-width: 680px;
 }
 
-/* ---- Quick facts (Summary tab) ------------------------------------ */
+/* ---- Quick facts (Summary section) ------------------------------------ */
 .fact-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -147,7 +159,7 @@
     color: var(--text-primary);
 }
 
-/* ---- Skills tab ---------------------------------------------------- */
+/* ---- Skills section ---------------------------------------------------- */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -160,7 +172,7 @@
     color: var(--text-primary);
 }
 
-/* ---- Projects tab --------------------------------------------------- */
+/* ---- Projects section --------------------------------------------------- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -205,7 +217,7 @@
     color: var(--accent);
 }
 
-/* ---- Experience tab (timeline) --------------------------------------- */
+/* ---- Experience section (timeline) --------------------------------------- */
 .timeline {
     position: relative;
     display: flex;
@@ -354,5 +366,14 @@
 @media (max-width: 768px) {
     .fact-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tab-panels {
+        gap: 3rem;
     }
 }

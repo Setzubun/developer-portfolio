@@ -1,21 +1,22 @@
 import { initTypedHero } from "./utils.js";
 /* ============================================================
    PORTFOLIO SCRIPT
-   Handles: tab switching, hero typed effect, scroll reveals,
-   sliding tab indicator, and the Formspree contact submission.
+   Handles: jump-nav scroll-spy (formerly tab switching), hero
+   typed effect, scroll reveals, sliding nav indicator, and the
+   Formspree contact submission.
    ============================================================ */
 
 document.addEventListener("DOMContentLoaded", async () => {
 
   await Promise.all([
-      loadProfile(),
-      loadSkills(),
-      loadExperience(),
-      loadProjects()
+    loadProfile(),
+    loadSkills(),
+    loadExperience(),
+    loadProjects()
   ])
 
   initTypedHero("whoami");
-  initTabs();
+  initSectionNav();
   initReveal();
   initContactForm();
   initFooterYear();
@@ -202,12 +203,32 @@ async function loadExperience() {
   }
 }
 
+/* ----------------------------------------------------------
+    Jump nav (formerly tab switching)
 
-function initTabs() {
-  const tabBtns = Array.from(document.querySelectorAll(".tab-btn"));
-  const panels = Array.from(document.querySelectorAll(".panel"));
-  const indicator = document.querySelector(".tab-indicator");
-  const tabbar = document.getElementById("tabbar");
+    All four sections (summary/skills/projects/experience) are
+    always visible now, stacked in one continuous scroll — like
+    project-details.html. Clicking a nav button scrolls to the
+    matching section (offset by that section's scroll-margin-top
+    in CSS, so it lands below the sticky topbar + nav rather than
+    underneath them). Which button is "active" is driven by
+    scroll position via IntersectionObserver, the same technique
+    project-details.js uses for its on-this-page nav.
+---------------------------------------------------------- */
+
+function initSectionNav() {
+
+  const tabBtns =
+      Array.from(document.querySelectorAll(".tab-btn"));
+
+  const indicator =
+      document.querySelector(".tab-indicator");
+
+  if (!tabBtns.length) return;
+
+  const sections = tabBtns
+      .map(btn => document.getElementById(btn.dataset.tab))
+      .filter(Boolean);
 
   function moveIndicator(btn) {
     if (!indicator || !btn) return;
@@ -215,71 +236,58 @@ function initTabs() {
     indicator.style.transform = `translateX(${btn.offsetLeft - 4}px)`;
   }
 
-  function activateTab(tabName, { scroll = false } = {}) {
+  function setActiveTab(tabName) {
     tabBtns.forEach((btn) => {
       const isActive = btn.dataset.tab === tabName;
       btn.classList.toggle("active", isActive);
-      btn.setAttribute("aria-selected", String(isActive));
+      btn.setAttribute("aria-current", String(isActive));
       if (isActive) moveIndicator(btn);
     });
-
-    panels.forEach((panel) => {
-      const isActive = panel.dataset.panel === tabName;
-      panel.hidden = !isActive;
-      panel.classList.toggle("active", isActive);
-      if (isActive) {
-        // re-trigger reveal animation for cards inside the panel
-        panel.querySelectorAll(".reveal").forEach((card) => {
-          card.classList.remove("in-view");
-          requestAnimationFrame(() => card.classList.add("in-view"));
-        });
-      }
-    });
-
-    const tabPanels = document.querySelector(".tab-panels");
-
-    if (tabPanels) {
-      const y =
-          tabPanels.getBoundingClientRect().top +
-          window.pageYOffset -
-          450;
-
-      window.scrollTo({
-        top: y,
-        behavior: "smooth",
-      });
-    }
   }
 
   tabBtns.forEach((btn) => {
-    btn.addEventListener("click", () => activateTab(btn.dataset.tab));
+    btn.addEventListener("click", () => {
+      const target = document.getElementById(btn.dataset.tab);
+      if (!target) return;
+
+      // scroll-margin-top on .panel (see pages/index.css) handles
+      // the sticky-header offset, so a plain scrollIntoView is
+      // enough here.
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   });
 
-  // hero "View Projects" button jumps to a specific tab
-  document.querySelectorAll("[data-tab-jump]").forEach((el) => {
-    el.addEventListener("click", () => activateTab(el.dataset.tabJump, { scroll: true }));
-  });
+  if (sections.length && "IntersectionObserver" in window) {
 
-  // set initial indicator position once layout is ready
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveTab(entry.target.id);
+        }
+      });
+    }, {
+      // A section counts as "current" once it's roughly centred in
+      // the viewport, rather than only at the exact instant its top
+      // edge crosses the very top of the screen.
+      rootMargin: "-45% 0px -50% 0px",
+      threshold: 0
+    });
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  // Set the initial indicator position once layout is ready, and
+  // keep it aligned on resize (button widths can change at
+  // breakpoints).
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      const activeBtn =
-          document.querySelector(".tab-btn.active");
-
+      const activeBtn = document.querySelector(".tab-btn.active");
       moveIndicator(activeBtn);
     });
   });
+
   window.addEventListener("resize", () => {
     const activeBtn = document.querySelector(".tab-btn.active");
-    moveIndicator(activeBtn);
-  });
-
-  // activateTab("summary");
-
-  requestAnimationFrame(() => {
-    const activeBtn =
-        document.querySelector(".tab-btn.active");
-
     moveIndicator(activeBtn);
   });
 }
@@ -293,15 +301,15 @@ function initReveal() {
   }
 
   const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
   );
 
   targets.forEach((t) => observer.observe(t));
@@ -589,4 +597,3 @@ function initParticles() {
 
   animate();
 }
-
