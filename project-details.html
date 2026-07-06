@@ -11,6 +11,13 @@
             content="Software engineering project details."
     >
 
+    <!-- Social sharing (populated by JS from project data) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" id="og-title" content="Project Details | Jerry's Portfolio">
+    <meta property="og:description" id="og-description" content="Software engineering project details.">
+    <meta property="og:image" id="og-image" content="">
+    <meta name="twitter:card" content="summary_large_image">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +31,8 @@
 </head>
 
 <body>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <canvas id="particle-background"></canvas>
 
@@ -45,15 +54,24 @@
     </div>
 </header>
 
-<main class="project-page">
+<!-- Shown while project JSON is being fetched; JS should hide/remove this once render begins -->
+<div id="page-loader" class="page-loader">
+    <div class="loader-spinner" aria-hidden="true"></div>
+    <p>Loading project…</p>
+</div>
+
+<main class="project-page" id="main-content">
 
     <section class="project-hero">
 
-        <a href="projects.html" class="back-link">
-            ← Back to Projects
-        </a>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="projects.html" class="back-link">← Back to Projects</a>
+        </nav>
 
-        <p id="project-category" class="eyebrow"></p>
+        <div class="hero-heading-row">
+            <p id="project-category" class="eyebrow"></p>
+            <span id="project-status-badge" class="status-badge"></span>
+        </div>
 
         <h1 id="project-title" class="hero-name"></h1>
 
@@ -69,9 +87,28 @@
 
     </section>
 
-    <section class="glass-card">
+    <!-- Jump nav for a long detail page. JS can toggle an "active" class on the -->
+    <!-- link matching whichever section is in view (e.g. via IntersectionObserver). -->
+    <!-- Static in normal flow until scrolled past, then sticks — narrower than -->
+    <!-- the topbar and with a higher z-index (see project-details.css), so it -->
+    <!-- visually overlaps the topbar between the brand mark and social icons, -->
+    <!-- the same technique index.html's .tabbar uses. -->
+    <nav class="toc" aria-label="On this page">
+        <ul>
+            <li><a href="#facts-section">Quick Facts</a></li>
+            <li><a href="#overview-section">Overview</a></li>
+            <li><a href="#architecture-section">Architecture</a></li>
+            <li><a href="#gallery-section">Gallery</a></li>
+            <li><a href="#contributions-section">Contributions</a></li>
+            <li><a href="#challenges-section">Challenges</a></li>
+            <li><a href="#results-section">Results</a></li>
+            <li><a href="#learning-section">Lessons</a></li>
+        </ul>
+    </nav>
 
-        <h2 class="panel-title">
+    <section class="glass-card" id="facts-section" aria-labelledby="facts-heading">
+
+        <h2 class="panel-title" id="facts-heading">
             Quick Facts
         </h2>
 
@@ -84,9 +121,9 @@
 
     </section>
 
-    <section class="glass-card">
+    <section class="glass-card" id="overview-section" aria-labelledby="overview-heading">
 
-        <h2 class="panel-title">
+        <h2 class="panel-title" id="overview-heading">
             Overview
         </h2>
 
@@ -94,19 +131,23 @@
 
     </section>
 
-    <section class="glass-card">
+    <section class="glass-card" id="architecture-section" aria-labelledby="architecture-heading">
 
-        <h2 class="panel-title">
+        <h2 class="panel-title" id="architecture-heading">
             Architecture
         </h2>
 
         <p id="project-architecture"></p>
 
+        <!-- Optional architecture diagram image; JS can leave this empty/hidden -->
+        <!-- for projects that don't supply one. -->
+        <img id="project-architecture-diagram" class="architecture-diagram" alt="" hidden>
+
     </section>
 
-    <section class="glass-card">
+    <section class="glass-card" id="gallery-section" aria-labelledby="gallery-heading">
 
-        <h2 class="panel-title">
+        <h2 class="panel-title" id="gallery-heading">
             Gallery
         </h2>
 
@@ -114,9 +155,9 @@
 
     </section>
 
-    <section class="glass-card">
+    <section class="glass-card" id="contributions-section" aria-labelledby="contributions-heading">
 
-        <h2 class="panel-title">
+        <h2 class="panel-title" id="contributions-heading">
             Key Contributions
         </h2>
 
@@ -124,9 +165,9 @@
 
     </section>
 
-    <section class="glass-card">
+    <section class="glass-card" id="challenges-section" aria-labelledby="challenges-heading">
 
-        <h2 class="panel-title">
+        <h2 class="panel-title" id="challenges-heading">
             Challenges
         </h2>
 
@@ -134,9 +175,9 @@
 
     </section>
 
-    <section class="glass-card">
+    <section class="glass-card" id="results-section" aria-labelledby="results-heading">
 
-        <h2 class="panel-title">
+        <h2 class="panel-title" id="results-heading">
             Results
         </h2>
 
@@ -144,9 +185,9 @@
 
     </section>
 
-    <section class="glass-card">
+    <section class="glass-card" id="learning-section" aria-labelledby="learning-heading">
 
-        <h2 class="panel-title">
+        <h2 class="panel-title" id="learning-heading">
             Lessons Learned
         </h2>
 
@@ -154,7 +195,32 @@
 
     </section>
 
+    <!-- Prev/next project browsing without a round trip through the list page. -->
+    <!-- JS should hide either side if there's no prev/next project, and set href + text. -->
+    <nav class="project-pagination" aria-label="Project navigation">
+        <a id="prev-project-link" class="project-pagination-link project-pagination-prev" href="#" hidden>
+            <span class="project-pagination-label">← Previous</span>
+            <span class="project-pagination-title"></span>
+        </a>
+        <a id="next-project-link" class="project-pagination-link project-pagination-next" href="#" hidden>
+            <span class="project-pagination-label">Next →</span>
+            <span class="project-pagination-title"></span>
+        </a>
+    </nav>
+
 </main>
+
+<!-- Full-screen gallery viewer. JS should populate #lightbox-image / #lightbox-caption -->
+<!-- and wire up prev/next/close controls when a thumbnail is clicked. -->
+<dialog id="gallery-lightbox" class="lightbox" aria-label="Image viewer">
+    <button type="button" class="lightbox-close" aria-label="Close image viewer">✕</button>
+    <button type="button" class="lightbox-prev" aria-label="Previous image">‹</button>
+    <img id="lightbox-image" class="lightbox-image" alt="">
+    <button type="button" class="lightbox-next" aria-label="Next image">›</button>
+    <p id="lightbox-caption" class="lightbox-caption"></p>
+</dialog>
+
+<button id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>↑</button>
 
 <footer class="site-footer">
     <p>© <span id="year"></span> <span id="footer-name"></span>. Built with HTML, CSS &amp; JS — hosted on GitHub Pages.</p>
