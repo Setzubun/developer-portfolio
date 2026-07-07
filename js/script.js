@@ -364,7 +364,7 @@ function initFooterYear() {
 function renderResume(profile) {
 
   const resumeButton =
-      document.querySelector(".btn-solid");
+      document.getElementById("resume-btn");
 
   if (!resumeButton) return;
 

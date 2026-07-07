@@ -1,0 +1,78 @@
+{
+  "id": "tictactoe-ai",
+
+  "title": "TicTacToe AI",
+
+  "tagline": "Tic Tac Toe app coded with minimax AI with varying difficulty levels",
+
+  "category": "School Project",
+
+  "role": "Developer",
+
+  "teamSize": 5,
+
+  "status": "Completed",
+
+  "startDate": "2023-08",
+  "endDate": "2023-11",
+
+  "technologies": [
+    "C",
+    "SDL2"
+  ],
+
+  "thumbnail": "cover.webp",
+
+  "overview": "Tic Tac Toe app with local multiplayer and a bot with varying difficulties.",
+
+  "problem": "Develop a tic tac toe application with C where users (kids) can develop their initial stage of analytics thinking skill.",
+
+  "solution": "Created a tic tac toe application where users can play against each other locally and against bots with varying difficulty levels to challenge them at their logical thinking level.",
+
+  "architecture": "C was used for the tic tac toe minimax algorithm and varying difficulties algorithm.\n The SDL2 was used for the GUI and game logic",
+
+  "metrics": [
+    "Local multiplayer implemented",
+    "Easy difficulty used minimax depth 1 where bot is able to foresee immediate repercussions of the next move, but not long term repercussions",
+    "Medium difficulty features minimax depth 3-5",
+    "Hard difficulty features minimax depth 8 (max depth first search)",
+    "Games are varied between each session for the same move"
+  ],
+
+  "keyContributions": [
+    "Minimax Algorithm",
+    "Easy, Medium, Hard difficulty variations",
+    "Game variations"
+  ],
+
+  "learningPoints": [
+    "Implemented the minimax algorithm with depth control to balance performance and intelligence.",
+    "Gained experience integrating C game logic with an SDL2-based graphical interface",
+    "Learnt how to adapt AI algorithm into specific use case"
+  ],
+
+  "challenges": [
+    {
+      "title": "Minimax Algorithm",
+      "description": "Find out how to implement minimax algorithm depth first search into tic tac toe"
+    },
+    {
+      "title": "Repetitive games",
+      "description": "Varied games. Minimax typically chooses the best move, leading to boring games. Games were made to vary with AI still choosing the optimal move"
+    },
+    {
+      "title": "Medium difficulty too easy/hard",
+      "description": "Setting difficulty to a singular depth of 3, 4 or 5 made the game too easy/difficult.\n Therefore, medium difficulty was chosen to vary between depths 3, 4 or 5"
+    }
+  ],
+
+  "gallery": [
+    "cover.webp",
+    "gameplay.webp",
+    "end screens.webp"
+  ],
+
+  "github": "",
+
+  "demo": ""
+}

@@ -276,22 +276,22 @@ function renderQuickFacts(project) {
     const facts = [
 
         {
-            label: "Role",
+            label: "Role:",
             value: project.role
         },
 
         {
-            label: "Team Size",
+            label: "Team Size:",
             value: project.teamSize
         },
 
         {
-            label: "Duration",
+            label: "Duration:",
             value: dateLabel(project)
         },
 
         {
-            label: "Status",
+            label: "Status:",
             value: project.status
         }
 
