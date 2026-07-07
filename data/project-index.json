@@ -4,6 +4,18 @@
   ],
   "projects": [
     {
+      "id": "tictactoe-ai",
+      "title": "TicTacToe AI",
+      "tagline": "Tic Tac Toe app featuring local multiplayer and bots with varying difficulty levels using minimax AI",
+      "thumbnail": "projects/TicTacToe-AI/assets/cover.webp",
+      "startDate": "2023-08",
+      "endDate": "2023-11",
+      "technologies": [
+        "C",
+        "SDL2"
+      ]
+    },
+    {
       "id": "dummy-app-2",
       "title": "Dummy app 2",
       "tagline": "Collaborative document vault platform with real-time synchronization.",
@@ -40,18 +52,6 @@
         "Kotlin",
         "Firebase",
         "Jetpack Compose"
-      ]
-    },
-    {
-      "id": "tictactoe-ai",
-      "title": "TicTacToe AI",
-      "tagline": "Tic Tac Toe app coded with minimax AI with varying difficulty levels",
-      "thumbnail": "projects/TicTacToe-AI/assets/cover.webp",
-      "startDate": "2023-08",
-      "endDate": "2023-11",
-      "technologies": [
-        "C",
-        "SDL2"
       ]
     }
   ]
