@@ -114,8 +114,15 @@
    ========================================================== */
 
 #project-architecture {
-    line-height: 1.8;
-    white-space: pre-line;
+    margin: 0;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+#project-architecture li {
+    line-height: 1.7;
 }
 
 /* ==========================================================

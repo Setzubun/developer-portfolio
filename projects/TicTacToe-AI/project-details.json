@@ -3,7 +3,7 @@
 
   "title": "TicTacToe AI",
 
-  "tagline": "Tic Tac Toe app coded with minimax AI with varying difficulty levels",
+  "tagline": "Tic Tac Toe app featuring local multiplayer and bots with varying difficulty levels using minimax AI",
 
   "category": "School Project",
 
@@ -29,7 +29,11 @@
 
   "solution": "Created a tic tac toe application where users can play against each other locally and against bots with varying difficulty levels to challenge them at their logical thinking level.",
 
-  "architecture": "C was used for the tic tac toe minimax algorithm and varying difficulties algorithm.\n The SDL2 was used for the GUI and game logic",
+  "architecture": [
+    "Minimax algorithm & Difficulty variation: C",
+    "Game logic: SDL2",
+    "GUI: SDL2"
+  ],
 
   "metrics": [
     "Local multiplayer implemented",

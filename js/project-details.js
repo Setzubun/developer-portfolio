@@ -400,11 +400,22 @@ function createOverviewCard(title, description) {
 
 function renderArchitecture(project) {
 
-    document.getElementById(
-        "project-architecture"
-    ).textContent = project.architecture;
+    const architectureList =
+        document.getElementById("project-architecture");
+
+    architectureList.innerHTML = "";
+
+    project.architecture.forEach(point => {
+
+        const li = document.createElement("li");
+        li.textContent = point;
+
+        architectureList.appendChild(li);
+
+    });
 
     renderArchitectureDiagram(project);
+
 }
 
 function renderArchitectureDiagram(project) {
