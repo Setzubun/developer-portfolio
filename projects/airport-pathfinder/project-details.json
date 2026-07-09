@@ -46,8 +46,8 @@
 
   "learningPoints": [
     "Learnt how to use implement nodes by mapping each airport to a node",
-    "Implemented A-Star algorithm",
-    "Users may not always prioritise the shortest distance/fastest time. Some are okay with more layovers but saving costs"
+    "A-Star and dijkstra algorithm",
+    "There may be more than one metric for consideration in the real world. In this case, it's time and cost"
   ],
 
   "challenges": [
