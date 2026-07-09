@@ -26,96 +26,102 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function loadProfile() {
   try {
-    const response = await fetch('data/profile.json');
+    const response = await fetch("data/profile.json");
 
-    // Safely handle missing files or bad responses
     if (!response.ok) {
       throw new Error(`Failed to load profile.json: ${response.status}`);
     }
 
-    const data = await response.json();
+    const profile = await response.json();
 
-    renderFeaturedStack(data);
-    renderResume(data);
+    renderHero(profile);
+    renderAboutMe(profile);
+    renderProfileInfo(profile);
+    renderFooter(profile);
+    renderSocialLinks(profile);
 
-    // DOM updates
-    const firstNameEl = document.getElementById('first-name');
-    const lastNameEl = document.getElementById('last-name');
-    const taglineEl = document.getElementById('hero-tagline');
-    const footerNameEl = document.getElementById('footer-name');
-    const currentRoleEl = document.getElementById('current-role');
-
-    const aboutMeEl = document.getElementById('about-me-container');
-
-    const educationEl = document.getElementById('education');
-    const distinctionEl = document.getElementById('distinction');
-    const locationEl = document.getElementById('location')
-    const statusEl = document.getElementById('status')
-
-    if (firstNameEl) firstNameEl.textContent = data.firstName || '';
-    if (lastNameEl) lastNameEl.textContent = data.lastName || '';
-    if (taglineEl) taglineEl.textContent = data.tagline || '';
-    if (currentRoleEl) currentRoleEl.textContent = data.currentRole || '';
-
-    if (aboutMeEl && data.aboutMe) {
-      // Clear out any placeholder content first
-      aboutMeEl.innerHTML = '';
-
-      // Split the long string by double-newlines into an array of paragraphs
-      const paragraphs = data.aboutMe.split('\n\n');
-
-      // Loop through and create a <p> element for each chunk of text
-      paragraphs.forEach(text => {
-        if (text.trim() !== '') { // Skip empty blocks
-          const p = document.createElement('p');
-          p.textContent = text;
-          aboutMeEl.appendChild(p);
-        }
-      });
-    }
-
-    if (educationEl) educationEl.textContent = data.education || '';
-    if (distinctionEl) distinctionEl.textContent = data.distinction || '';
-    if (locationEl) locationEl.textContent = data.location || '';
-    if (statusEl) statusEl.textContent = data.status || '';
-
-    if (footerNameEl) {
-      // Use fallback logic to avoid printing "undefined"
-      const first = data.firstName || '';
-      const last = data.lastName || '';
-      footerNameEl.textContent = `${first} ${last}`.trim();
-    }
-
-    // Social Links
-    if (data.githubUrl) {
-      document.querySelectorAll('.js-github-link').forEach(el => {
-        el.href = data.githubUrl.trim();
-      });
-    }
-
-    if (data.linkedinUrl) {
-      document.querySelectorAll('.js-linkedin-link').forEach(el => {
-        el.href = data.linkedinUrl.trim();
-      });
-    }
-
-    if (data.email) {
-      const cleanEmail = data.email.trim();
-
-      // Update the href attribute for all email links (Top Bar + Contact Section)
-      document.querySelectorAll('.js-email-link').forEach(el => {
-        el.href = `mailto:${cleanEmail}`;
-      });
-
-      // Update the actual visible text only where specified (Contact Section)
-      document.querySelectorAll('.js-email-text').forEach(el => {
-        el.textContent = cleanEmail;
-      });
-    }
+    renderFeaturedStack(profile);
+    renderResume(profile);
 
   } catch (error) {
     console.error("Profile data could not be loaded:", error);
-    // Optional: You could set default fallback text here if the fetch fails
+  }
+}
+
+function setText(id, value) {
+  const el = document.getElementById(id);
+
+  if (el) {
+    el.textContent = value || "";
+  }
+}
+
+function renderHero(profile) {
+  setText("first-name", profile.firstName);
+  setText("last-name", profile.lastName);
+  setText("hero-tagline", profile.tagline);
+  setText("current-role", profile.currentRole);
+}
+
+function renderAboutMe(profile) {
+  const container = document.getElementById("about-me-container");
+
+  if (!container || !profile.aboutMe) return;
+
+  container.replaceChildren();
+
+  profile.aboutMe
+      .split("\n\n")
+      .filter(text => text.trim() !== "")
+      .forEach(text => {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = text;
+        container.appendChild(paragraph);
+      });
+}
+
+function renderProfileInfo(profile) {
+  setText("education", profile.education);
+  setText("distinction", profile.distinction);
+  setText("location", profile.location);
+  setText("status", profile.status);
+}
+
+function renderFooter(profile) {
+  const footerName = document.getElementById("footer-name");
+
+  if (!footerName) return;
+
+  const first = profile.firstName || "";
+  const last = profile.lastName || "";
+
+  footerName.textContent = `${first} ${last}`.trim();
+}
+
+function renderSocialLinks(profile) {
+
+  if (profile.githubUrl) {
+    document.querySelectorAll(".js-github-link").forEach(link => {
+      link.href = profile.githubUrl.trim();
+    });
+  }
+
+  if (profile.linkedinUrl) {
+    document.querySelectorAll(".js-linkedin-link").forEach(link => {
+      link.href = profile.linkedinUrl.trim();
+    });
+  }
+
+  if (profile.email) {
+    const email = profile.email.trim();
+
+    document.querySelectorAll(".js-email-link").forEach(link => {
+      link.href = `mailto:${email}`;
+    });
+
+    document.querySelectorAll(".js-email-text").forEach(text => {
+      text.textContent = email;
+    });
   }
 }
 
