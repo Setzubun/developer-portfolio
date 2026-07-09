@@ -19,7 +19,8 @@
   "technologies": [
     "Kotlin",
     "Firebase",
-    "Jetpack Compose"
+    "Jetpack Compose",
+    "Firebase Authentication"
   ],
 
   "thumbnail": "cover.webp",
@@ -30,7 +31,13 @@
 
   "solution": "Implemented an offline-first architecture using local persistence and Firebase synchronization. Added conflict resolution mechanisms and real-time updates across devices.",
 
-  "architecture": "The application follows MVVM architecture with Firebase Authentication, Firestore, and local caching for offline support.",
+  "architecture": [
+    "MVVM Architecture",
+    "Login: Firebase Authentication",
+    "Database: Firestore",
+    "Logic: Kotlin",
+    "UI: Jetpack Compose"
+  ],
 
   "metrics": [
     "Reduced synchronization latency by 40%",

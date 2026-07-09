@@ -1,8 +1,21 @@
 {
   "featuredProjects": [
-    "tictactoe-ai"
+    "tictactoe-ai",
+    "airport-pathfinder"
   ],
   "projects": [
+    {
+      "id": "airport-pathfinder",
+      "title": "Airport Shortest Route Pathfinder (DSA)",
+      "tagline": "Finding the shortest path between two airports",
+      "thumbnail": "projects/airport-pathfinder/assets/cover.webp",
+      "startDate": "2024-01",
+      "endDate": "2024-04",
+      "technologies": [
+        "Python",
+        "Tkinter"
+      ]
+    },
     {
       "id": "collaborative-password-app",
       "title": "Collaborative Password App",
@@ -13,7 +26,20 @@
       "technologies": [
         "Kotlin",
         "Firebase",
-        "Jetpack Compose"
+        "Jetpack Compose",
+        "Firebase Authentication"
+      ]
+    },
+    {
+      "id": "terrorism-data-visualiser",
+      "title": "Terrorism Data Visualiser",
+      "tagline": "Tic Tac Toe app featuring local multiplayer and bots with varying difficulty levels using minimax AI",
+      "thumbnail": "projects/terrorism-data-visualiser/assets/cover.webp",
+      "startDate": "2023-08",
+      "endDate": "2023-11",
+      "technologies": [
+        "C",
+        "SDL2"
       ]
     },
     {

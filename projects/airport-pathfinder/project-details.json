@@ -1,0 +1,78 @@
+{
+  "id": "airport-pathfinder",
+
+  "title": "Airport Shortest Route Pathfinder (DSA)",
+
+  "tagline": "Finding the shortest path between two airports",
+
+  "category": "School Project",
+
+  "role": "Developer",
+
+  "teamSize": 3,
+
+  "status": "Completed",
+
+  "startDate": "2024-01",
+  "endDate": "2024-04",
+
+  "technologies": [
+    "Python",
+    "Tkinter"
+  ],
+
+  "thumbnail": "cover.webp",
+
+  "overview": "Using data structures and algorithms to find the shortest path between two airports",
+
+  "problem": "How do flight websites find different routes for the user?",
+
+  "solution": "Compared across 3 different pathfinding algorithms to find the best time/cost optimised route according to the user's preferences",
+
+  "architecture": [
+    "Logic: Python",
+    "GUI: Tkinter"
+  ],
+
+  "metrics": [
+    "A-Star, Dijkstra, Bellman-Ford algorithms used for pathfinding",
+    "Multi-metric considerations - Balances between time and cost"
+  ],
+
+  "keyContributions": [
+    "A-Star Algorithm",
+    "Multi-metric optimisation criteria of time and cost"
+  ],
+
+  "learningPoints": [
+    "Learnt how to use implement nodes by mapping each airport to a node",
+    "Implemented A-Star algorithm",
+    "Users may not always prioritise the shortest distance/fastest time. Some are okay with more layovers but saving costs"
+  ],
+
+  "challenges": [
+    {
+      "title": "Finding out how to quantify distance",
+      "description": "How to calculate the geographic distance between two coordinate pairs of latitude and longitude"
+    },
+    {
+      "title": "Accounting for two optimisation criteria of time and cost",
+      "description": "How to balance between the user's priority of time and cost rather than the traditional one criteria approach for A-star."
+    },
+    {
+      "title": "Choosing a suitable algorithmic guess for a flight network",
+      "description": "Two airports are connected to each other only when flight routes between them exist. Hence, not every airport can fly to another, adding to the complexity."
+    }
+  ],
+
+  "gallery": [
+    "cover.webp",
+    "route-display.webp",
+    "clicked.webp",
+    "algorithms.webp"
+  ],
+
+  "github": "",
+
+  "demo": ""
+}
