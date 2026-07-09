@@ -6,6 +6,8 @@ import { initTypedHero } from "./utils.js";
    Formspree contact submission.
    ============================================================ */
 
+const PROJECT_DETAIL_URL = (id) => `project-details.html?id=${encodeURIComponent(id)}`;
+
 document.addEventListener("DOMContentLoaded", async () => {
 
   await Promise.all([
@@ -191,10 +193,14 @@ async function loadExperience() {
     const experiences =
         await response.json();
 
-    container.innerHTML =
-        experiences.map(createExperienceCard).join("");
+    container.replaceChildren();
+
+    experiences.forEach(exp => {
+      container.appendChild(createExperienceCard(exp));
+    });
 
     initReveal();
+
   } catch (err) {
     console.error(
         "Failed to load experience data",
@@ -393,28 +399,21 @@ function renderFeaturedStack(profile) {
 
 
 function renderFeaturedProjects(projectIndex) {
-
-  const container =
-      document.getElementById(
-          "featured-projects"
-      );
+  const container = document.getElementById("featured-projects");
 
   if (!container) return;
 
-  const featured =
-      projectIndex.featuredProjects
-          .map(id =>
-              projectIndex.projects.find(
-                  project =>
-                      project.id === id
-              )
-          )
-          .filter(Boolean);
+  const featured = projectIndex.featuredProjects
+      .map(id =>
+          projectIndex.projects.find(project => project.id === id)
+      )
+      .filter(Boolean);
 
-  container.innerHTML =
-      featured
-          .map(project => createProjectCard(project))
-          .join("");
+  container.replaceChildren(); // Clears existing content
+
+  featured.forEach(project => {
+    container.appendChild(createProjectCard(project));
+  });
 }
 
 
@@ -452,148 +451,64 @@ function renderSkills(skills) {
   initReveal();
 }
 
-
 function createProjectCard(project) {
+  const card = document.createElement("a");
+  card.className = "glass-card project-card reveal";
+  card.href = PROJECT_DETAIL_URL(project.id);
+  card.setAttribute("aria-label", `View details for ${project.title}`);
 
-  return `
-  <div class="glass-card project-card reveal">
-
-      <span class="project-period">
-        ${project.startDate}
-        -
-        ${project.endDate}
-      </span>
-
-      <h3>${project.title}</h3>
-
-      <p>
-        ${project.tagline}
-      </p>
-
-      <div class="chip-row">
-
-        ${project.technologies
-      .map(
-          tech =>
-              `<span class="chip chip-sm">${tech}</span>`
-      )
-      .join("")}
-
-      </div>
-
-  </div>
-  `;
-}
-
-
-function createExperienceCard(exp) {
-
-  const descriptionHtml =
-      (exp.description || [])
-          .map(item => `<li>${item}</li>`)
-          .join("");
-
-  return `
-    <div class="timeline-entry reveal">
-      <div class="timeline-node"></div>
-
-      <div class="glass-card">
-
-        <span class="timeline-date">
-          ${exp.startDate} — ${exp.endDate}
+  card.innerHTML = `
+        <span class="project-period">
+            ${project.startDate} - ${project.endDate}
         </span>
 
-        <h3>${exp.title}</h3>
+        <h3>${project.title}</h3>
 
-        <p class="timeline-org">
-          ${exp.institution}
+        <p>
+            ${project.tagline}
         </p>
 
-        <ul class="timeline-list">
-          ${descriptionHtml}
-        </ul>
+        <div class="chip-row">
+            ${project.technologies
+      .map(
+          tech => `<span class="chip chip-sm">${tech}</span>`
+      )
+      .join("")}
+        </div>
+    `;
 
-      </div>
-    </div>
-  `;
+  return card;
 }
 
+function createExperienceCard(exp) {
+  const card = document.createElement("div");
+  card.className = "timeline-entry reveal";
 
-function initParticles() {
+  const descriptionHtml = (exp.description || [])
+      .map(item => `<li>${item}</li>`)
+      .join("");
 
-  const canvas =
-      document.getElementById(
-          "particle-background"
-      );
+  card.innerHTML = `
+        <div class="timeline-node"></div>
 
-  if (!canvas) return;
+        <div class="glass-card">
 
-  const ctx =
-      canvas.getContext("2d");
+            <span class="timeline-date">
+                ${exp.startDate} — ${exp.endDate}
+            </span>
 
-  const particles = [];
+            <h3>${exp.title}</h3>
 
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+            <p class="timeline-org">
+                ${exp.institution}
+            </p>
 
-  resize();
+            <ul class="timeline-list">
+                ${descriptionHtml}
+            </ul>
 
-  window.addEventListener(
-      "resize",
-      resize
-  );
+        </div>
+    `;
 
-  for (let i = 0; i < 150; i++) {
-
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      size: Math.random() * 2,
-      speed: 0.2 + Math.random() * 0.4
-    });
-
-  }
-
-  function animate() {
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-    particles.forEach(p => {
-
-      ctx.fillStyle =
-          "rgba(255,255,255,0.25)";
-
-      ctx.beginPath();
-
-      ctx.arc(
-          p.x,
-          p.y,
-          p.size,
-          0,
-          Math.PI * 2
-      );
-
-      ctx.fill();
-
-      p.y += p.speed;
-
-      if (p.y > canvas.height) {
-        p.y = 0;
-      }
-
-    });
-
-    requestAnimationFrame(
-        animate
-    );
-  }
-
-  animate();
+  return card;
 }

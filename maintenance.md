@@ -15,15 +15,13 @@ Example:
 
 # Adding A Project
 
-1. Create a project folder: `assets/projects/my-project/`
+1. Create a project folder: `projects/my-project/`
 
-2. Add screenshots to that folder
+2. Add screenshots to the `projects/my-project/assets` folder
 
-3. Add an entry to: `data/projects.json`
+3. If project is to be featured, add it to `data/project-index.json` under `featuredProjects`
 
-4. Edit `data/project-index.json` for which projects should be featured `featuredProjects`
-
-5. Run `node scripts/generate-project-index.js` to populate project-index.json
+4. Run `node scripts/generate-project-index.js` to populate project-index.json (for testing)
 
 # Adding an experience
 1. Edit in experience.json

@@ -1,57 +1,31 @@
 {
   "featuredProjects": [
-    "TicTacToe-AI"
+    "tictactoe-ai"
   ],
   "projects": [
+    {
+      "id": "collaborative-password-app",
+      "title": "Collaborative Password App",
+      "tagline": "Password app for personal and group use",
+      "thumbnail": "projects/collaborative-password-app/assets/cover.webp",
+      "startDate": "2026-05",
+      "endDate": "TBC",
+      "technologies": [
+        "Kotlin",
+        "Firebase",
+        "Jetpack Compose"
+      ]
+    },
     {
       "id": "tictactoe-ai",
       "title": "TicTacToe AI",
       "tagline": "Tic Tac Toe app featuring local multiplayer and bots with varying difficulty levels using minimax AI",
-      "thumbnail": "projects/TicTacToe-AI/assets/cover.webp",
+      "thumbnail": "projects/tictactoe-ai/assets/cover.webp",
       "startDate": "2023-08",
       "endDate": "2023-11",
       "technologies": [
         "C",
         "SDL2"
-      ]
-    },
-    {
-      "id": "dummy-app-2",
-      "title": "Dummy app 2",
-      "tagline": "Collaborative document vault platform with real-time synchronization.",
-      "thumbnail": "projects/dummy-app-2/assets/cover.webp",
-      "startDate": "2025-01",
-      "endDate": "2025-05",
-      "technologies": [
-        "Kotlin",
-        "Firebase",
-        "Jetpack Compose"
-      ]
-    },
-    {
-      "id": "dummy-app-3",
-      "title": "Dummy app 3",
-      "tagline": "Collaborative document vault platform with real-time synchronization.",
-      "thumbnail": "projects/dummy-app-3/assets/cover.webp",
-      "startDate": "2025-01",
-      "endDate": "2025-05",
-      "technologies": [
-        "Kotlin",
-        "Firebase",
-        "Jetpack Compose"
-      ]
-    },
-    {
-      "id": "family-password-app",
-      "title": "Family Password App",
-      "tagline": "Collaborative document vault platform with real-time synchronization.",
-      "thumbnail": "projects/family-password-app/assets/cover.webp",
-      "startDate": "2025-01",
-      "endDate": "2025-05",
-      "technologies": [
-        "Kotlin",
-        "Firebase",
-        "Jetpack Compose"
       ]
     }
   ]

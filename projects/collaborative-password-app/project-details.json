@@ -1,20 +1,20 @@
 {
-  "id": "family-password-app",
+  "id": "collaborative-password-app",
 
-  "title": "Family Password App",
+  "title": "Collaborative Password App",
 
-  "tagline": "Collaborative document vault platform with real-time synchronization.",
+  "tagline": "Password app for personal and group use",
 
   "category": "Personal Project",
 
   "role": "Lead Developer",
 
-  "teamSize": 4,
+  "teamSize": 1,
 
-  "status": "Completed",
+  "status": "In Progress",
 
-  "startDate": "2025-01",
-  "endDate": "2025-05",
+  "startDate": "2026-05",
+  "endDate": "TBC",
 
   "technologies": [
     "Kotlin",

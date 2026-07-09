@@ -11,14 +11,6 @@ import {dateLabel, initTypedHero, sortByRecency} from "./utils.js";
 
    ============================================================ */
 
-/* ---- FUTURE WORK convention ------------------------------------------
-   Cards link to a single detail-page template:
-       project.html?id=<project-id>
-   which will fetch projects/<id>/project-details.json itself and render the
-   full case-study (overview, problem, solution, gallery, etc.).
-
-   If you decide to generate a static page per project instead
-   (projects/<id>/index.html), this is the only line to change. */
 const PROJECT_DETAIL_URL = (id) => `project-details.html?id=${encodeURIComponent(id)}`;
 
 document.addEventListener("DOMContentLoaded", async () => {
