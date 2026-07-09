@@ -48,7 +48,7 @@
   "keyContributions": [
     "Chart plotting within the website based on terrorism data",
     "Performance Analysis between SQL and NoSQL",
-    "User login and actions"
+    "User login and CRUD actions"
   ],
 
   "learningPoints": [
