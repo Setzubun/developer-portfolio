@@ -1,0 +1,84 @@
+{
+  "id": "terrorism-data-visualiser",
+
+  "title": "Terrorism Trends Data Visualiser",
+
+  "tagline": "Data Visualisation Website of terrorism statistics around the world",
+
+  "category": "School Project",
+
+  "role": "Developer",
+
+  "teamSize": 5,
+
+  "status": "Completed",
+
+  "startDate": "2023-08",
+  "endDate": "2023-11",
+
+  "technologies": [
+    "C",
+    "SDL2"
+  ],
+
+  "thumbnail": "cover.webp",
+
+  "overview": "Discover insights and trends within terrorism in countries around the world",
+
+  "problem": "Terrorism trends such as modes of attack, weapons used etc. are unclear.",
+
+  "solution": "Built a responsive website to aggregate data, identify trends pertaining to terrorism to anticipate modes of attacks and assess countermeasures.",
+
+  "architecture": [
+    "Database: MongoDB and MySQL hosted on Aiven",
+    "Application layer: NodeJS",
+    "GUI: React Native"
+  ],
+  "architectureDiagram": "architecture.webp",
+
+  "metrics": [
+    "Heatmaps of frequent terrorist attacks, zooming in to attacks and fatalities by year",
+    "Transaction and Rollback features to maintain data integrity through ACID principles",
+    "Ability for user to add data on new terrorist attacks directly into website",
+    "Filters and drilldown tables to uncover patterns and insights"
+  ],
+
+  "keyContributions": [
+    "Chart plotting within the website based on terrorism data",
+    "Performance Analysis between SQL and NoSQL",
+    "User login and actions"
+  ],
+
+  "learningPoints": [
+    "SQL outperformed NoSQL in speed by 26 times. This is expected as the strength of SQL is its query speed and NoSQL is its horizontal scaling and schema flexibility",
+    "How to plot charts in react native",
+    "Learnt how to set up MongoDB and NoSQL databases and perform CRUD on them"
+  ],
+
+  "challenges": [
+    {
+      "title": "React Native was difficult",
+      "description": "Being new to the react native framework, it was a challenge to get it to work"
+    },
+    {
+      "title": "Architecture decisions between SQL and NoSQL",
+      "description": "Planning for future scalability on whether data can be funnelled into SQL or NoSQL, how to integrate the both of them in one application"
+    },
+    {
+      "title": "Deciding what database tool to use",
+      "description": "In hindsight, it might have been better to use PostgreSQL rather than integrating MongoDB and MySQL as our data was still rather structured"
+    }
+  ],
+
+  "gallery": [
+    "cover.webp",
+    "heatmaps.webp",
+    "charts.webp",
+    "er-diagram.webp",
+    "performance-analysis.webp"
+  ],
+
+  "github": "",
+
+  "demo": ""
+}

@@ -1,7 +1,8 @@
 {
   "featuredProjects": [
     "tictactoe-ai",
-    "airport-pathfinder"
+    "airport-pathfinder",
+    "terrorism-data-visualiser"
   ],
   "projects": [
     {
@@ -28,6 +29,18 @@
         "Firebase",
         "Jetpack Compose",
         "Firebase Authentication"
+      ]
+    },
+    {
+      "id": "terrorism-data-visualiser",
+      "title": "Terrorism Trends Data Visualiser",
+      "tagline": "Data Visualisation Website of terrorism statistics around the world",
+      "thumbnail": "projects/terrorism-data-visualiser/assets/cover.webp",
+      "startDate": "2023-08",
+      "endDate": "2023-11",
+      "technologies": [
+        "C",
+        "SDL2"
       ]
     },
     {
