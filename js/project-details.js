@@ -460,7 +460,7 @@ function showError(message) {
 
             <a
                 class="btn btn-solid"
-                href="../projects.html">
+                href="./projects.html">
 
                 Back to Projects
 

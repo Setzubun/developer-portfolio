@@ -646,6 +646,28 @@
     display: none;
 }
 
+.project-pagination-all {
+    grid-column: 1 / -1;
+
+    justify-self: center;
+
+    margin-top: .5rem;
+
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: .82rem;
+    text-decoration: none;
+
+    transition: color .2s ease,
+    transform .2s ease;
+}
+
+.project-pagination-all:hover,
+.project-pagination-all:focus-visible {
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
 /* ==========================================================
    Responsive
    ========================================================== */
