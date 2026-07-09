@@ -36,11 +36,13 @@
       "title": "Terrorism Trends Data Visualiser",
       "tagline": "Data Visualisation Website of terrorism statistics around the world",
       "thumbnail": "projects/terrorism-data-visualiser/assets/cover.webp",
-      "startDate": "2023-08",
-      "endDate": "2023-11",
+      "startDate": "2024-05",
+      "endDate": "2024-08",
       "technologies": [
-        "C",
-        "SDL2"
+        "React Native",
+        "NodeJS",
+        "MongoDB",
+        "MySQL"
       ]
     },
     {
