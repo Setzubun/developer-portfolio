@@ -1,19 +1,51 @@
 {
   "Languages": [
     "Java",
+    "Kotlin",
     "Python",
-    "Kotlin"
+    "JavaScript",
+    "SQL",
+    "C"
   ],
 
-  "Frameworks": [
-    "Spring Boot",
+  "Frontend": [
     "React",
+    "Vue",
+    "HTML",
+    "CSS"
+  ],
+
+  "Backend": [
+    "FastAPI",
+    "Django",
+    "Fastify",
+    "gRPC"
+  ],
+
+  "Mobile": [
+    "Android",
     "Jetpack Compose"
   ],
 
-  "Cloud": [
-    "AWS",
+  "Databases": [
+    "PostgreSQL",
+    "MySQL",
+    "Firestore",
+    "MongoDB",
+    "Room"
+  ],
+
+  "Cloud & DevOps": [
     "Docker",
-    "Linux"
+    "Kubernetes",
+    "GitHub Actions",
+    "AWS",
+    "GCP"
+  ],
+  "Machine Learning": [
+    "TensorFlow",
+    "Keras",
+    "scikit-learn",
+    "pandas"
   ]
 }
