@@ -2,11 +2,11 @@
   "firstName": "Jerry",
   "lastName": "Lew",
   "title": "Software Engineer",
-  "tagline": "Building scalable systems and developer-focused applications.",
+  "tagline": "Making the world a better place, one app at a time",
 
   "currentRole": "B.Sc. Computer Science (Honours with Distinction) · Singapore Institute of Technology",
 
-  "aboutMe": "I'm a recent Computer Science graduate from the Singapore Institute of Technology, graduating with Honours with Distinction. I have an interest with mobile and cloud architecture, as well as backend systems. \n\nA project that I am particularly proud of would be how I lead my team to develop a gamified step tracker app, planning out the tech stack, data schema, algorithms while accounting to each team member's strengths",
+  "aboutMe": "I'm a recent Computer Science graduate from the Singapore Institute of Technology, graduating with Honours with Distinction. I have an interest with mobile and cloud architecture, as well as backend systems. \n\nOne project I'm particularly proud of is leading the development of a gamified step tracker application.I designed the overall system architecture, planned the technology stack, defined the database schema, and coordinated development by aligning tasks with each team member's strengths.",
 
   "education": "B.Sc. Computing Science, SIT",
   "distinction":"Honours with Distinction",
@@ -23,10 +23,11 @@
   "featuredTechStack": [
     "Python",
     "Kotlin",
-    "PostgreSQL",
-    "Firestore",
+    "JavaScript",
     "Docker",
     "Kubernetes",
+    "PostgreSQL",
+    "Firestore",
     "Elasticsearch"
   ]
 }
