@@ -18,20 +18,6 @@
       ]
     },
     {
-      "id": "collaborative-password-app",
-      "title": "Collaborative Password App",
-      "tagline": "Password app for personal and group use",
-      "thumbnail": "projects/collaborative-password-app/assets/cover.webp",
-      "startDate": "2026-05",
-      "endDate": "TBC",
-      "technologies": [
-        "Kotlin",
-        "Firebase",
-        "Jetpack Compose",
-        "Firebase Authentication"
-      ]
-    },
-    {
       "id": "terrorism-data-visualiser",
       "title": "Terrorism Trends Data Visualiser",
       "tagline": "Data Visualisation Website of terrorism statistics around the world",
