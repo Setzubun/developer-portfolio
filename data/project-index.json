@@ -2,7 +2,8 @@
   "featuredProjects": [
     "tictactoe-ai",
     "airport-pathfinder",
-    "terrorism-data-visualiser"
+    "terrorism-data-visualiser",
+    "learning-management-system"
   ],
   "projects": [
     {
@@ -18,17 +19,17 @@
       ]
     },
     {
-      "id": "collaborative-password-app",
-      "title": "Collaborative Password App",
-      "tagline": "Password app for personal and group use",
-      "thumbnail": "projects/collaborative-password-app/assets/cover.webp",
-      "startDate": "2026-05",
-      "endDate": "TBC",
+      "id": "learning-management-system",
+      "title": "Learning Management System",
+      "tagline": "A learning platform website enabling users to teach, learn, communicate, and manage educational content.",
+      "thumbnail": "projects/learning-management-system/assets/cover.webp",
+      "startDate": "2024-05",
+      "endDate": "2024-08",
       "technologies": [
-        "Kotlin",
-        "Firebase",
-        "Jetpack Compose",
-        "Firebase Authentication"
+        "Python",
+        "Django",
+        "MongoDB",
+        "Microsoft SQL"
       ]
     },
     {

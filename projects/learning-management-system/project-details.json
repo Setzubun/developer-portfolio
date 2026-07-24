@@ -1,0 +1,99 @@
+{
+  "id": "learning-management-system",
+
+  "title": "Learning Management System",
+
+  "tagline": "A learning platform website enabling users to teach, learn, communicate, and manage educational content.",
+
+  "category": "School Project",
+
+  "role": "Developer",
+
+  "teamSize": 8,
+
+  "status": "Completed",
+
+  "startDate": "2024-05",
+  "endDate": "2024-08",
+
+  "technologies": [
+    "Python",
+    "Django",
+    "MongoDB",
+    "Microsoft SQL"
+  ],
+
+  "thumbnail": "cover.webp",
+
+  "overview": "Developed a learning management system website where users can act as both teachers and learners. The platform supports course creation, lesson and assessment management, user administration, messaging, video calling and payment methods.",
+
+  "problem": "Educational platforms require an integrated system that allows users to seamlessly switch between teaching and learning while managing course content, assessments, and communication in one place.",
+
+  "solution": "Designed and implemented a modular learning platform featuring user management, course and lesson management, quizzes, messaging, and video calling, allowing users to both create courses and enrol in others.",
+
+  "architectureDiagram": "architecture.webp",
+
+  "architecture": [
+    "Frontend: HTML, CSS, Django",
+    "Application Logic: Python",
+    "User Management Module",
+    "Content Management Module",
+    "Communication Module",
+    "Payment Management Module",
+    "User Management Module"
+  ],
+
+  "metrics": [
+    "Supports dual-role users who can be both teachers and learners",
+    "Course management with lessons and structured lesson content",
+    "Integrated quiz and assessment functionality",
+    "Built-in messaging and video calling between users",
+    "Modular architecture separating user, content, and communication features",
+    "Payment system using Stripe"
+  ],
+
+  "keyContributions": [
+    "User management module",
+    "Appropriate privileges between user as a teacher and as a student",
+    "User update permissions",
+    "Secure user login with hashed database"
+  ],
+
+  "learningPoints": [
+    "Learnt how to design software around multiple user roles with different permissions",
+    "Learnt how to implement a password reset",
+    "Gained experience developing CRUD workflows for hierarchical entities such as courses and lessons",
+    "Improved understanding of building with Model, View Template Django framework",
+    "Learnt the importance of designing extensible systems that support future feature expansion"
+  ],
+
+  "challenges": [
+    {
+      "title": "Supporting users with multiple roles",
+      "description": "Designed the platform so every user could simultaneously act as a teacher by publishing courses while also enrolling as a learner in other courses."
+    },
+    {
+      "title": "Managing hierarchical learning content",
+      "description": "Structured relationships between courses, lessons, lesson content, and quizzes while keeping the application maintainable and easy to navigate."
+    },
+    {
+      "title": "Button for user to retrieve their location rather than typing",
+      "description": "Used an open API to determine the country by reverse geocoding."
+    }
+  ],
+
+  "gallery": [
+    "cover.webp",
+    "architecture.webp",
+    "course management.webp",
+    "video.webp",
+    "video call.webp",
+    "payment.webp",
+    "edit profile.webp",
+    "quiz.webp"
+  ],
+
+  "github": "",
+
+  "demo": ""
+}
